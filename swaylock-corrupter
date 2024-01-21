@@ -6,7 +6,7 @@ else
 	DISPLAYS="$(swaymsg -t get_outputs -p | grep "Output" | awk '{print $2}')"
 	BASE_FILE="${TMPDIR:-/tmp/ss}"
  
-	for display in "$DISPLAYS"; do
+	for display in $DISPLAYS; do
 		FILE="${BASE_FILE}${display}.png"
 		grim -o "$display" "$FILE"
 		corrupter "$FILE" "$FILE"
