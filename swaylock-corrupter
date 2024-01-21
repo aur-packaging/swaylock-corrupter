@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$1" = "--help" ]  ||  [ "$1" = "-h" ]; then
-	swaylock --help 2>&1| sed -Ee 's/swaylock/swaylock-corrupter/g' -e '/--image/d' 1>&2
+	swaylock --help 2>&1| sed -e 's/swaylock/swaylock-corrupter/g' -e '/--image/d' 1>&2
 else
 	DISPLAYS="$(swaymsg -t get_outputs -p | grep "Output" | awk '{print $2}')"
 	BASE_FILE="${TMPDIR:-/tmp/ss}"
